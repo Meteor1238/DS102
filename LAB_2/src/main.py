@@ -71,7 +71,7 @@ def assignment_3():
     X_tr_soft, y_tr_soft = preprocess_data(X_train_raw, y_train_raw, target_classes=None)
     X_te_soft, y_te_soft = preprocess_data(X_test_raw, y_test_raw, target_classes=None)
 
-    sk_soft_model = SklearnLR(solver='lbfgs', max_iter=200, tol=0.0001)
+    sk_soft_model = SklearnLR(solver='saga', max_iter=100, tol=0.0001)
     sk_soft_model.fit(X_tr_soft, y_tr_soft)
     
     y_pred_soft = sk_soft_model.predict(X_te_soft)
